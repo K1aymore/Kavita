@@ -36,6 +36,7 @@ export class MangaReaderService {
   }
 
   adjustForDoubleReader(page: number) {
+    // return Math.floor(page / 2) * 2;
     if (!this.pairs.hasOwnProperty(page)) return page;
     return this.pairs[page];
   }
@@ -71,7 +72,7 @@ export class MangaReaderService {
    * @returns
    */
   isCoverImage(pageNumber: number) {
-    return pageNumber === 0;
+    return false;
   }
 
   /**
