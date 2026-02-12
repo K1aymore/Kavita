@@ -739,7 +739,7 @@ public class ReaderService : IReaderService
             }
             else
             {
-                if (previousPage.IsWide || previousPage.PageNumber == 0)
+                if (previousPage.IsWide)
                 {
                     pairs.Add(dimension.PageNumber, dimension.PageNumber);
                     pairStart = true;
