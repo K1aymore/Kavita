@@ -36,9 +36,7 @@ export class MangaReaderService {
   }
 
   adjustForDoubleReader(page: number) {
-    // return Math.floor(page / 2) * 2;
-    if (!this.pairs.hasOwnProperty(page)) return page;
-    return this.pairs[page];
+    return Math.floor(page / 2) * 2;
   }
 
   getPageDimensions(pageNum: number) {
