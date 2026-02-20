@@ -726,7 +726,7 @@ public class ReaderService : IReaderService
         var files = dimensions.ToList();
         if (files.Count == 0) return pairs;
 
-        var coverSingle = true;
+        var coverSingle = false;
         foreach(var dimension in files)
         {
             if (dimension.IsWide)
