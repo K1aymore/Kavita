@@ -72,7 +72,8 @@ export class MangaReaderService {
    * @returns
    */
   isCoverImage(pageNumber: number) {
-    return false;
+    // is single cover if next page is not paired with first
+    return pageNumber === 0 && this.pairs[1] != 0;
   }
 
   /**
