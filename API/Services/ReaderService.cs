@@ -726,6 +726,17 @@ public class ReaderService : IReaderService
         var files = dimensions.ToList();
         if (files.Count == 0) return pairs;
 
+        var coverSingle = true;
+        foreach(var dimension in files)
+        {
+            if (dimension.IsWide)
+            {
+                // if even number in browser (odd here) then cover is alone
+                coverSingle = dimension.PageNumber % 2 != 0;
+                break;
+            }
+        }
+
         var pairStart = true;
         var previousPage = files[0];
         pairs.Add(previousPage.PageNumber, previousPage.PageNumber);
@@ -739,8 +750,9 @@ public class ReaderService : IReaderService
             }
             else
             {
-                if (previousPage.IsWide)
+                if (previousPage.IsWide || (previousPage.PageNumber == 0 && coverSingle))
                 {
+                    // set this page as right-side and next as left side
                     pairs.Add(dimension.PageNumber, dimension.PageNumber);
                     pairStart = true;
                 }
